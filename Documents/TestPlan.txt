@@ -1,0 +1,697 @@
+CS20006 Assignment 5
+@author Mayank Kumar (19CS30029)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ UNIT TESTING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A. Unit Test Plan for 'Date'
+
+A.1. Testing the provided constructor : Date(int d = 1, int m = 1, int y = 2021)
+    - Date object is created in following scenarios
+        - All arguments are provided
+        - All arguments except y are provided
+        - All arguments except m and y are provided
+        - No argument is provided
+
+A.2. Testing the copy constructor : Date(const Date&)
+    - Copy constructor is called in following cases:
+        - A new Date object is created by passing an existing Date object as argument
+        - A new Date object is created by assigning it to an existing Date object
+
+A.3. Testing the day() function : Day day() const
+    - Gives the day of week of a Date object
+    - Tested if day given is correct
+    - Tested for 29 February
+
+A.4. Testing the overloaded relational operator == : inline bool operator==(const Date& d)
+    - Checks if all members of Date objects in both sides of the operator are equal
+    - Tested for case when all three members are equal
+    - Tested for case when only two members are equal
+    - Tested for case when only one member is equal
+    - Tested for case when no members are equal
+
+A.5. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Date&)
+    - Prints a Date object to the screen
+    - Tested if printed output is same as in Golden output log file
+
+A.6. Testing Date::Age()
+
+A.7. Testing difference of no. of days between random dates
+    - Check for positive difference
+    - Check for negative difference
+
+A.8. Testing for invalid inputs
+    - alphabets in place of digits in input
+    - date_=29 in February of non leap year
+    - date_=31 in month Apr
+    - date_=32 in month Jul
+    - year_ < 1900
+    - year_ > 2099
+
++++ GOLDEN OUTPUTS
+
+A.1.
+    - d.date_ = 7, d.month_ = Mar, d.year_ = 2021
+    - d3.date_ = 1, d3.month_ = Jan, d3.year_ = 2021
+    - d4.date_ = 5, d4.month_ = Jan, d4.year_ = 2021
+    - d5.date_ = 5, d.month_ = Jun, d.year_ = 2021
+
+A.2.
+    - d1.date_ = 7, d1.month_ = Mar, d1.year_ = 2021
+    - d2.date_ = 7, d2.month_ = Mar, d2.year_ = 2021
+
+A.3.
+    - d.day() = Sun
+    - d1.day() = Sun
+    - d2.day() = Sun
+    - d3.day() = Fri
+    - d4.day() = Tue
+    - d5.day() = Sat
+    - d9.day() = Sat
+
+A.4.
+    - (d==d1) = true
+    - (d1==d2) = true
+    - (d==d6) = false
+    - (d==d7) = false
+    - (d==d8) = false
+    - (d6==d7) = false
+    - (d6==d8) = false
+    - (d7==d8) = false
+    - (d==d9) = false
+
+A.5.
+    Sun, 7/Mar/2021
+
+A.6.
+    (0 == Age(d1)) = true
+    (1 == Age(d6)) = true
+    (19 == Age(d10)) = true
+
+A.7.
+    (0 == subtract(d, d1)) = true
+    (-395 == subtract(d6, d7)) = true
+    (396 == subtract(d7, d6)) = true
+    (-365 == subtract(d6, d8)) = true
+    (366 == subtract(d8, d6)) = true
+
+A.8.
+    Invalid Date Format. DD in DD/MM/YYYY must be a number in dd/mm/yyyy
+    Invalid Date. DD out of range for MM in DD/MM/YYYY in 29/02/1999
+    Invalid Date. DD out of range for MM in DD/MM/YYYY in 31/04/2021
+    Invalid Date. DD out of range in DD/MM/YYYY in 32/07/2021
+    Date Out Of Bound. 09/04/1899 must be between 1900 and 2099.
+    Date Out Of Bound. 09/04/3000 must be between 1900 and 2099.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+B. Unit Test Plan for 'Railways'
+
+B.1. Testing the Type() function : const static Railways &Type()
+    - The Type() function is called to get an object of Railways class
+    - The Type() function is called again and check if it is the same as previous object
+      (testing for singleton class)
+
+B.2. Testing the GetDistance() function : static int GetDistance(const Station &, const Station &)
+    - Gives the distance between two stations
+    - Tested for all possible pair of distinct stations
+
+B.3. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Railways &)
+    - Prints a Railways object to the screen
+    - Tested if printed output is same as in Golden output log file
+
+B.4. Erroneus Master Data
+    - Check if duplicate station is present
+    - Check if duplicate distance is present
+    - Check if negative distance is present
+    - Check that distance between same station is not present
+    - Run nested for loops to check for every possibility of above erroneous cases
+
++++ GOLDEN OUTPUTS
+
+B.1.
+    - (&i==&Railways::Type()) = true
+
+B.2.
+    - GetDistance(Station("Mumbai"), Station("Delhi")) = 1447
+    - GetDistance(Station("Mumbai"), Station("Kolkata")) = 2014
+    - GetDistance(Station("Mumbai"), Station("Bangalore")) = 981
+    - GetDistance(Station("Mumbai"), Station("Chennai")) = 1338
+    - GetDistance(Station("Delhi"), Station("Kolkata")) = 1472
+    - GetDistance(Station("Delhi"), Station("Bangalore")) = 2150
+    - GetDistance(Station("Delhi"), Station("Chennai")) = 2180
+    - GetDistance(Station("Kolkata"), Station("Bangalore")) = 1871
+    - GetDistance(Station("Kolkata"), Station("Chennai")) = 1659
+    - GetDistance(Station("Bangalore"), Station("Chennai")) = 350
+
+B.3.
+    Station: Mumbai
+    Station: Delhi
+    Station: Kolkata
+    Station: Bangalore
+    Station: Chennai
+    Distance between Stations:
+    Bangalore and Chennai: 350
+    Bangalore and Delhi: 2150
+    Bangalore and Kolkata: 1871
+    Bangalore and Mumbai: 981
+    Chennai and Bangalore: 350
+    Chennai and Delhi: 2180
+    Chennai and Kolkata: 1659
+    Chennai and Mumbai: 1338
+    Delhi and Bangalore: 2150
+    Delhi and Chennai: 2180
+    Delhi and Kolkata: 1472
+    Delhi and Mumbai: 1447
+    Kolkata and Bangalore: 1871
+    Kolkata and Chennai: 1659
+    Kolkata and Delhi: 1472
+    Kolkata and Mumbai: 2014
+    Mumbai and Bangalore: 981
+    Mumbai and Chennai: 1338
+    Mumbai and Delhi: 1447
+    Mumbai and Kolkata: 2014
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+C. Unit Test Plan for 'Station'
+
+C.1. Testing the provided constructor : Station(const string &)
+    - Station object is created by passing a string as argument
+
+C.2. Testing the copy constructor : Station(const Station &)
+    - Copy constructor is called in following cases:
+        - A new Station object is created by passing an existing Station object as argument
+        - A new Station object is created by assigning it to an existing Station object
+
+C.3. Testing the GetName() function : string GetName() const
+    - Gives name of the Station object
+    - Tested if name given is correct
+
+C.4. Testing the GetDistance() function : int GetDistance(const Station &) const
+    - Gives distance to a Station using a Station object
+    - Tested if distance given is correct
+
+C.5. Testing the overloaded output stream operator << : friend ostream &operator<<(ostream&, const Station &)
+    - Prints a Station object to the screen
+    - Tested if printed output is same as in Golden output log file
+
+C.6. Testing for invalid inputs
+    - Check if wrong station name is given
+    - Check if empty station name is given
+
++++ GOLDEN OUTPUTS
+
+C.1.
+    - s1.name_ = "Mumbai"
+
+C.2.
+    - s2.name_ = "Mumbai"
+    - s3.name_ = "Kolkata"
+
+C.3.
+    - s1.GetName() = "Mumbai"
+    - s2.GetName() = "Mumbai"
+    - s3.GetName() = "Kolkata"
+
+c.4.
+    - s1.GetDistance(s3) = 2014
+
+C.5.
+    Station: Kolkata
+
+C.6.
+    Station name cannot be empty.
+    Station not present in Railways.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+D. Unit Test Plan for 'Name'
+
+D.1. Testing for invalid inputs
+    - When only middle name is given
+    - When none of first, middle or last name is given
+
++++ GOLDEN OUTPUTS
+
+    Bad Name Format. First Name or Last Name must be present.
+    Bad Name Format. First Name or Last Name must be present.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+E. Unit Test Plan for 'Gender'
+
+E.1.
+    Testing the Male class
+    - Check if name is Male
+    - Check if title is Mr.
+    - check if isMale() is true
+E.2.
+    Testing the Female class
+    - Check if name is Female
+    - Check if title is Ms.
+    - check if isMale() is false
+
++++ Golden Outputs
+
+E.1.
+    (&g == &Gender::Male::Type()) = true
+    (isMale(g) == true) = true
+    (g.GetTitle() == "Mr.") = true
+    (g.GetName() == "Male") = true
+
+E.2.
+    (&g2 == &Gender::Female::Type()) = true
+    (isMale(g2) == false) = true
+    (g2.GetTitle() == "Ms.") = true
+    (g2.GetName() == "Female") = true
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+F. Unit Test Plan for 'Booking'
+
+    - ensure that ReserveBooking() function is working properly for all kinds of inputs.
+    - fromStation and toStation must be valid.
+    - distance between the above pair of stations must exist in the railways.
+    - date of booking must be valid.
+    - date of reservation must be valid.
+    - date of booking must be later than date of reservation and within one year of it.
+    - passenger should be valid.
+    - passenger's date of birth should be less than date of reservation.
+    - check that the overloaded ostream operator << gives desired output
+    - testing for isEligible() function
+
++++ Golden Outputs
+
+        BOOKING SUCCEEDED!
+        PNR Number : 1
+        From Station : Kolkata
+        To Station : Mumbai
+        Travel Date : Tue, 20/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : General
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+        Passenger Information : 
+        Name: Mr. Mayank Kumar 
+        Date of Birth: Mon, 16/Jul/2001
+        Gender: Male
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Fare = 6606
+
+        Invalid To Station Name. Kokata Station is not in Railways.
+        Invalid Booking Information
+
+        From and To Stations cannot be same.
+        Invalid Booking Information
+
+        Date of Booking cannot be same as Date of Reservation.
+        Invalid Booking Information
+
+        Date of Birth 16/07/2022 cannot be from future
+        Invalid Passenger Information
+
+        Aadhar must contain digits from 0-9 only
+        Invalid Passenger Information
+
+        Mobile no. must contain digits from 0-9 only
+        Invalid Passenger Information
+
+        Tatkal or Premium Tatkal Bookings cannot be done more than one day prior to travel date.
+        Invalid Booking Information
+
+        Reservation cannot be done more than one year prior to Travel Date.
+        Tatkal or Premium Tatkal Bookings cannot be done more than one day prior to travel date.
+        Invalid Booking Information
+
+        Passenger is ineligible to book in Ladies category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in SeniorCitizen category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in SeniorCitizen category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in Blind category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in Blind category
+        Invalid Booking Information
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+H. Unit Test Plan for 'BookingClass'
+
+H.1. Ensure that each of the eight booking class has correct values for IsSitting(), IsAC(), IsLuxury(), 
+     GetNumberOfTiers(), GetName(), GetLoadFactor(), GetReservationCharge(), GetTatkalLoadFactor(), GetMinTatkalCharge(), 
+     GetMaxTatkalCharge(), GetMinTatkalDist() functions
+
+H.2. Check that overloaded ostream operator << is working properly
+
+H.3. Check that the class is singleton
+
++++ Golden Outputs
+
+H.1 AC First Class
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+
+H.2. Executive Chair Car
+        Travel Class = ExecutiveChairCar
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 0
+        : Luxury: Yes
+
+H.3. AC 2 Tier
+        Travel Class = AC2Tier
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: No
+
+H.4. First Class
+        Travel Class = FirstClass
+        : Mode: Sleeping
+        : Comfort: Non-AC
+        : Bunks: 2
+        : Luxury: Yes
+
+H.5. AC 3 Tier
+        Travel Class = AC3Tier
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 3
+        : Luxury: No
+
+H.6. AC Chair Car
+        Travel Class = ACChairCar
+        : Mode: Sitting
+        : Comfort: AC
+        : Bunks: 0
+        : Luxury: No
+
+H.7. Sleeper
+        Travel Class = Sleeper
+        : Mode: Sleeping
+        : Comfort: Non-AC
+        : Bunks: 3
+        : Luxury: No
+
+H.8. Second Sitting
+        Travel Class = SecondSitting
+        : Mode: Sitting
+        : Comfort: Non-AC
+        : Bunks: 0
+        : Luxury: No
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+I. Unit Test Plan for 'BookingCategory'
+
+I.1. Check that the class is singleton
+I.2. Check name of the booking category
+
++++ Golden Outputs
+
+    ->  For a class with name Z of BookingCategoryType
+        (true == (&i == &Z::Type())) = true
+        ("Z" == i.GetName()) = true
+    
+    ->  For a class with name Z of DivyaangCategoryType
+        (true == (&i == &Z::Type())) = true
+        ("Z" == i.GetName()) = true
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+J. Unit Test Plan for 'Passenger'
+
+J.1. Check the CreatePassenger() function
+
+J.2. Check that it works properly for all positive test cases
+
+J.3. Check that it shows proper error for invalid name, invalid date of birth, invalid aadhaar, invalid mobile, 
+                        disability and disabilityID (ID not required when disability is None, ID is compulsory
+                                                        when disability is not None)
+
+J.4. Check that overloaded ostream operator << is working properly
+
++++ Golden Outputs
+
+    Date of Birth 16/07/2025 cannot be from future
+    Mobile no. must be of 10 digits
+    Invalid Passenger Information
+
+    Bad Name Format. First Name or Last Name must be present.
+    Invalid Passenger Information
+
+    Bad Name Format. First Name or Last Name must be present.
+    Invalid Passenger Information
+
+    Invalid Date. DD out of range for MM in DD/MM/YYYY in 29/02/2001
+    Invalid Passenger Information
+
+    Invalid Date. DD out of range for MM in DD/MM/YYYY in 30/02/2000
+    Invalid Passenger Information
+
+    Aadhar must be of 12 digits
+    Invalid Passenger Information
+
+    Aadhar must be of 12 digits
+    Invalid Passenger Information
+
+    Mobile no. must be of 10 digits
+    Invalid Passenger Information
+
+    Mobile no. must be of 10 digits
+    Invalid Passenger Information
+
+    ID is required when Divyaang Category is not None.
+    Invalid Passenger Information
+
+    ID is not required when Divyaang Category is None.
+    Invalid Passenger Information
+
+J.4.
+
+    Name: Mr. Mayank Kumar 
+    Date of Birth: Mon, 16/Jul/2001
+    Gender: Male
+    Aadhaar: 906125658148
+    Mobile: 9631920388
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ APPLICATION TESTING +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Application Test Plan
+
+    Invalid Booking : due to stations , date of booking / reservation , date of reservation more than one year , invalid passenger details should fail.
+
+    Multiple bookings should be allowed on the same date of booking for the same passenger.
+    Multiple bookings should be allowed on the same date of booking for different passengers.
+    Multiple bookings should be allowed on the same date of reservation for the same passenger.
+    Multiple bookings should be allowed on the same date of reservation for different passengers.
+
+    Multiple bookings from the same departure station should be allowed.
+    Multiple bookings to the same arrival station should be allowed.
+    Multiple bookings for the same booking class should be allowed.
+    Multiple bookings for the same booking category should be allowed.
+
+    Different booking classes for the same set of stations should be allowed.
+    Different booking category for the same set of stations should be allowed.
+
+    Fare between two stations should be independent of the date.
+    Fare between two stations should be dependent on the bookingclass.
+    Fare between two stations should be dependent on the bookingcategory.
+    Fare for station A to station B and station B to station A should be the same.
+    Fare between two stations should be dependent on the passenger disability , age and gender.
+
+    PNR should serially increase for each booking.
+    Booking must be added to the sBookings vector.
+    Fare should be computed correctly according to the business logic given.
+
++++ Golden Outputs for positive test cases
+
+        BOOKING SUCCEEDED!
+        PNR Number : 1
+        From Station : Kolkata
+        To Station : Mumbai
+        Travel Date : Tue, 20/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : General
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+        Passenger Information : 
+        Name: Mr. Mayank Kumar 
+        Date of Birth: Mon, 16/Jul/2001
+        Gender: Male
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Fare = 6606
+
+        BOOKING SUCCEEDED!
+        PNR Number : 2
+        From Station : Kolkata
+        To Station : Mumbai
+        Travel Date : Tue, 20/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : SeniorCitizen
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+        Passenger Information : 
+        Name: Mr. Mayank Kumar 
+        Date of Birth: Tue, 16/Jul/1957
+        Gender: Male
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Disability: Blind
+        Disability ID: 311
+        Fare = 3987
+
+        BOOKING SUCCEEDED!
+        PNR Number : 3
+        From Station : Kolkata
+        To Station : Mumbai
+        Travel Date : Tue, 20/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : Ladies
+        Travel Class = Sleeper
+        : Mode: Sleeping
+        : Comfort: Non-AC
+        : Bunks: 3
+        : Luxury: No
+        Passenger Information : 
+        Name: Ms. XX Kumari 
+        Date of Birth: Mon, 16/Jul/2001
+        Gender: Female
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Disability: Blind
+        Disability ID: 311
+        Fare = 1027
+
+        BOOKING SUCCEEDED!
+        PNR Number : 4
+        From Station : Kolkata
+        To Station : Mumbai
+        Travel Date : Tue, 20/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : General
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+        Passenger Information : 
+        Name: Mr. Mayank Kumar 
+        Date of Birth: Mon, 16/Jul/2001
+        Gender: Male
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Fare = 6606
+
+        BOOKING SUCCEEDED!
+        PNR Number : 5
+        From Station : Mumbai
+        To Station : Kolkata
+        Travel Date : Tue, 20/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : General
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+        Passenger Information : 
+        Name: Mr. Mayank Kumar 
+        Date of Birth: Mon, 16/Jul/2001
+        Gender: Male
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Fare = 6606
+
+        BOOKING SUCCEEDED!
+        PNR Number : 6
+        From Station : Kolkata
+        To Station : Mumbai
+        Travel Date : Thu, 22/Apr/2021
+        Booking Date : Sat, 10/Apr/2021
+        Booking Category : General
+        Travel Class = ACFirstClass
+        : Mode: Sleeping
+        : Comfort: AC
+        : Bunks: 2
+        : Luxury: Yes
+        Passenger Information : 
+        Name: Mr. ABC Kumar 
+        Date of Birth: Sun, 16/Jul/2000
+        Gender: Male
+        Aadhaar: 906125658148
+        Mobile: 9631920388
+        Fare = 6606
+
++++ Golden Outputs for negative test cases
+
+        Invalid To Station Name. Kokata Station is not in Railways.
+        Invalid Booking Information
+
+        From and To Stations cannot be same.
+        Invalid Booking Information
+
+        Date of Booking cannot be same as Date of Reservation.
+        Invalid Booking Information
+
+        Date of Birth 16/07/2022 cannot be from future
+        Invalid Passenger Information
+
+        Aadhar must contain digits from 0-9 only
+        Invalid Passenger Information
+
+        Mobile no. must contain digits from 0-9 only
+        Invalid Passenger Information
+
+        Passenger is ineligible to book in Ladies category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in SeniorCitizen category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in SeniorCitizen category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in Blind category
+        Invalid Booking Information
+
+        Passenger is ineligible to book in Blind category
+        Invalid Booking Information
+
+        Tatkal or Premium Tatkal Bookings cannot be done more than one day prior to travel date.
+        Invalid Booking Information
+
+        Reservation cannot be done more than one year prior to Travel Date.
+        Tatkal or Premium Tatkal Bookings cannot be done more than one day prior to travel date.
+        Invalid Booking Information
+
+        Passenger is ineligible to book in Ladies category
+        Invalid Booking Information
+
+        ID is required when Divyaang Category is not None.
+        Invalid Passenger Information
+
+        ID is not required when Divyaang Category is None.
+        Invalid Passenger Information
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

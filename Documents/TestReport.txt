@@ -1,0 +1,428 @@
+Name : Mayank Kumar
+Roll No.: 19CS30029
+
++++ Unit Test Report:
+
++++ Date class
+
+    Date(7, 3, 2021) : PASSED
+    Date(7, 3, 2020) : PASSED
+    Date(7, 4, 2021) : PASSED
+    Date(8, 3, 2021) : PASSED
+    Date(29, 2, 2020) : PASSED
+    Date(16, 7, 2001) : PASSED
+    (Sun == d.GetDay()) : PASSED
+    (Sun == d1.GetDay()) : PASSED
+    (Sun == d2.GetDay()) : PASSED
+    (Fri == d3.GetDay()) : PASSED
+    (Tue == d4.GetDay()) : PASSED
+    (Sat == d5.GetDay()) : PASSED
+    (Sat == d9.GetDay()) : PASSED
+    (0 == subtract(d, d1)) : PASSED
+    (-395 == subtract(d6, d7)) : PASSED
+    (396 == subtract(d7, d6)) : PASSED
+    (-365 == subtract(d6, d8)) : PASSED
+    (366 == subtract(d8, d6)) : PASSED
+    (0 == Age(d1)) : PASSED
+    (1 == Age(d6)) : PASSED
+    (19 == Age(d10)) : PASSED
+    CreateDate("16/07/2001") : PASSED
+    CreateDate("dd/mm/yyyy") : FAILED (NEGATIVE TEST CASE)
+    CreateDate("29/02/1999") : FAILED (NEGATIVE TEST CASE)
+    CreateDate("31/04/2021") : FAILED (NEGATIVE TEST CASE)
+    CreateDate("32/07/2021") : FAILED (NEGATIVE TEST CASE)
+    CreateDate("09/04/1899") : FAILED (NEGATIVE TEST CASE)
+    CreateDate("09/04/3000") : FAILED (NEGATIVE TEST CASE)
+    (expOut.str()==out.str()) : PASSED
+
+
++++ Station Class
+
+    Station("Mumbai") : PASSED
+    Station("Kolkata") : PASSED
+    (2014==s1.GetDistance(s3)) : PASSED
+    CreateStation("") : FAILED (NEGATIVE TEST CASE)
+    CreateStation("dijgh") : FAILED (NEGATIVE TEST CASE)
+    CreateStation("Kolkata") : PASSED
+    expOut.str()==out.str() : PASSED
+
+
++++ Name Class
+
+    CreateName("Mayank", "Kumar", "Baranwal") : PASSED
+    CreateName("Mayank", "", "Kumar") : PASSED
+    CreateName("Mayank", "Kumar", "") : PASSED
+    CreateName("", "Kumar", "Baranwal") : PASSED
+    CreateName("", "", "Baranwal") : PASSED
+    CreateName("", "", "") : FAILED (NEGATIVE TEST CASE)
+    CreateName("", "Kumar", "") : FAILED (NEGATIVE TEST CASE)
+    expOut.str()==out.str()
+
+
++++ Railways Class
+
+    true == (&i==&Railways::IndianRailways()) : PASSED
+    (1447 == i.GetDistance(Station("Mumbai"), Station("Delhi"))) : PASSED
+    (2014 == i.GetDistance(Station("Mumbai"), Station("Kolkata"))) : PASSED
+    (981 == i.GetDistance(Station("Mumbai"), Station("Bangalore"))) : PASSED
+    (1338 == i.GetDistance(Station("Mumbai"), Station("Chennai"))) : PASSED
+    (1472 == i.GetDistance(Station("Delhi"), Station("Kolkata"))) : PASSED
+    (2150 == i.GetDistance(Station("Delhi"), Station("Bangalore"))) : PASSED
+    (2180 == i.GetDistance(Station("Delhi"), Station("Chennai"))) : PASSED
+    (1871 == i.GetDistance(Station("Kolkata"), Station("Bangalore"))) : PASSED
+    (1659 == i.GetDistance(Station("Kolkata"), Station("Chennai"))) : PASSED
+    (350 == i.GetDistance(Station("Bangalore"), Station("Chennai"))) : PASSED
+    Testing for Duplicate Station : PASSED (No duplicate station was present)
+    Testing for Negative Distance : PASSED (No negative distance was present)
+    Testing for Duplicate Distance : PASSED (No duplicate distance was present)
+    Testing for Distance between same pair of stations : PASSED (No such distance was found, error msg is displayed when 
+                                                                 tried to get distance between same pair of stations)
+
+
++++ Passenger Class
+
+    CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type()) : PASSED
+    CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::TB::Type(), "3114") : PASSED
+    CreatePassenger("Mayank", "", "", "16/07/2025", Gender::Male::Type(), "906125658148", "", Divyaang::Blind::Type(), "22") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("", "Kumar", "", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Blind::Type(), "22") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("", "", "", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "29/02/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "30/02/2000", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "16/07/2001", Gender::Male::Type(), "9061", "9631920388", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "16/07/2001", Gender::Male::Type(), "9061abcd", "9631920388", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "16/07/2001", Gender::Male::Type(), "906125658148", "96319203885", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "16/07/2001", Gender::Male::Type(), "906125658148", "9631903ij", Divyaang::Cancer::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Cancer::Type()) : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "Kumar", "", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type(), "3114") : FAILED (NEGATIVE TEST CASE)
+    CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type()) : PASSED
+    expOut.str()==out.str() : PASSED
+
+
++++ Gender Class
+
+    (&g == &Gender::Male::Type()) : PASSED
+    (isMale(g) == true) : PASSED
+    (g.GetTitle() == "Mr.") : PASSED
+    (g.GetName() == "Male") : PASSED
+    (&g2 == &Gender::Female::Type()) : PASSED
+    (isMale(g2) == false) : PASSED
+    (g2.GetTitle() == "Ms.") : PASSED
+    (g2.GetName() == "Female") : PASSED
+
+
++++ BookingClass Class
+
+    ->  ACFirstClass Type
+
+        (false==i.IsSitting()) : PASSED
+        (true==i.IsAC()) : PASSED
+        (true==i.IsLuxury()) : PASSED
+        (2==i.GetNumberOfTiers()) : PASSED
+        ("ACFirstClass"==i.GetName()) : PASSED
+        (6.5==i.GetLoadFactor()) : PASSED
+        (60.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (400.0 == i.GetMinTatkalCharge()) : PASSED
+        (500.0 == i.GetMaxTatkalCharge()) : PASSED
+        (500 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+    
+    ->  AC2Tier Type
+
+        (false==i.IsSitting()) : PASSED
+        (true==i.IsAC()) : PASSED
+        (false==i.IsLuxury()) : PASSED
+        (2==i.GetNumberOfTiers()) : PASSED
+        ("AC2Tier"==i.GetName()) : PASSED
+        (4.0==i.GetLoadFactor()) : PASSED
+        (50.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (400.0 == i.GetMinTatkalCharge()) : PASSED
+        (500.0 == i.GetMaxTatkalCharge()) : PASSED
+        (500 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+    
+    ->  FirstClass Type
+
+        (false==i.IsSitting()) : PASSED
+        (false==i.IsAC()) : PASSED
+        (true==i.IsLuxury()) : PASSED
+        (2==i.GetNumberOfTiers()) : PASSED
+        ("FirstClass"==i.GetName()) : PASSED
+        (3.0==i.GetLoadFactor()) : PASSED
+        (50.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (400.0 == i.GetMinTatkalCharge()) : PASSED
+        (500.0 == i.GetMaxTatkalCharge()) : PASSED
+        (500 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+
+    ->  AC3Tier Type
+
+        (false==i.IsSitting()) : PASSED
+        (true==i.IsAC()) : PASSED
+        (false==i.IsLuxury()) : PASSED
+        (3==i.GetNumberOfTiers()) : PASSED
+        ("AC3Tier"==i.GetName()) : PASSED
+        (2.5==i.GetLoadFactor()) : PASSED
+        (40.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (300.0 == i.GetMinTatkalCharge()) : PASSED
+        (400.0 == i.GetMaxTatkalCharge()) : PASSED
+        (500 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+
+    ->  ACChairCar Type
+
+        (true==i.IsSitting()) : PASSED
+        (true==i.IsAC()) : PASSED
+        (false==i.IsLuxury()) : PASSED
+        (0==i.GetNumberOfTiers()) : PASSED
+        ("ACChairCar"==i.GetName()) : PASSED
+        (2.0==i.GetLoadFactor()) : PASSED
+        (40.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (125.0 == i.GetMinTatkalCharge()) : PASSED
+        (225.0 == i.GetMaxTatkalCharge()) : PASSED
+        (250 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+
+    ->  Sleeper Type
+
+        (false==i.IsSitting()) : PASSED
+        (false==i.IsAC()) : PASSED
+        (false==i.IsLuxury()) : PASSED
+        (3==i.GetNumberOfTiers()) : PASSED
+        ("Sleeper"==i.GetName()) : PASSED
+        (1.0==i.GetLoadFactor()) : PASSED
+        (20.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (100.0 == i.GetMinTatkalCharge()) : PASSED
+        (200.0 == i.GetMaxTatkalCharge()) : PASSED
+        (500 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+
+    ->  SecondSitting Type
+
+        (true==i.IsSitting()) : PASSED
+        (false==i.IsAC()) : PASSED
+        (false==i.IsLuxury()) : PASSED
+        (0==i.GetNumberOfTiers()) : PASSED
+        ("SecondSitting"==i.GetName()) : PASSED
+        (0.6==i.GetLoadFactor()) : PASSED
+        (15.0==i.GetReservationCharge()) : PASSED
+        (0.1==i.GetTatkalLoadFactor()) : PASSED
+        (10.0 == i.GetMinTatkalCharge()) : PASSED
+        (15.0 == i.GetMaxTatkalCharge()) : PASSED
+        (100 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+
+    ->  ExecutiveChairCar Type
+
+        (false==i.IsSitting()) : PASSED
+        (true==i.IsAC()) : PASSED
+        (true==i.IsLuxury()) : PASSED
+        (0==i.GetNumberOfTiers()) : PASSED
+        ("ExecutiveChairCar"==i.GetName()) : PASSED
+        (5.0==i.GetLoadFactor()) : PASSED
+        (60.0==i.GetReservationCharge()) : PASSED
+        (0.3==i.GetTatkalLoadFactor()) : PASSED
+        (400.0 == i.GetMinTatkalCharge()) : PASSED
+        (500.0 == i.GetMaxTatkalCharge()) : PASSED
+        (250 == i.GetMinTatkalDist()) : PASSED
+        (expOut.str()==out.str()) : PASSED
+
+
++++ BookingCategory Class
+
+    ->  General
+
+        (true == (&i == &General::Type())) : PASSED
+        ("General" == i.GetName()) : PASSED
+
+    ->  Ladies
+
+        (true == (&i == &Ladies::Type())) : PASSED
+        ("Ladies" == i.GetName()) : PASSED
+
+    ->  SeniorCitizen
+
+        (true == (&i == &SeniorCitizen::Type())) : PASSED
+        ("SeniorCitizen" == i.GetName()) : PASSED
+
+    ->  Tatkal
+
+        (true == (&i == &Tatkal::Type())) : PASSED
+        ("Tatkal" == i.GetName()) : PASSED
+
+    ->  PremiumTatkal
+
+        (true == (&i == &PremiumTatkal::Type())) : PASSED
+        ("PremiumTatkal" == i.GetName()) : PASSED
+
+    ->  Blind
+
+        (true == (&i == &Blind::Type())) : PASSED
+        ("Blind" == i.GetName()) : PASSED
+
+    ->  OrthHandicapped
+
+        (true == (&i == &OrthHandicapped::Type())) : PASSED
+        ("OrthHandicapped" == i.GetName()) : PASSED
+
+    ->  Cancer
+
+        (true == (&i == &Cancer::Type())) : PASSED
+        ("Cancer" == i.GetName()) : PASSED
+
+    ->  TB
+
+        (true == (&i == &TB::Type())) : PASSED
+        ("TB" == i.GetName()) : PASSED
+
+    ->  None
+
+        (true == (&i == &None::Type())) : PASSED
+        ("None" == i.GetName()) : PASSED
+
+
++++ Booking class
+
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+    *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : PASSED
+
+    (expOut.str()==out.str()) : PASSED
+
+    ReserveBooking("Kolkata", "Kokata", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+
+    ReserveBooking("Kolkata", "Kolkata", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "10/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2022", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "90612565814a", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "963192038b", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Tatkal::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2023", BookingClass::ACFirstClass::Type(), BookingCategory::Tatkal::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Ladies::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::SeniorCitizen::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/1962", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::SeniorCitizen::Type(), 
+       *Passenger::CreatePassenger("XX", "", "Kumari", "16/07/1964", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), Divyaang::Blind::Type(), 
+       *Passenger::CreatePassenger("XX", "", "Kumari", "16/07/1965", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), Divyaang::Blind::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::TB::Type(), "655")) : FAILED (NEGATIVE TEST CASE)
+    
+
+
++++ Application Test Report:
+
+    ->  MUTIPLE BOOKING SAME PASSENGER : PASSED
+    ->  MULTIPLE BOOKING SAME DOB(BOOKING) DIFFERENT PASSENGER : PASSED
+    ->  MULTIPLE BOOKING SAME DOR(RESERVATION) SAME PASSENGER : PASSED
+    ->  MULTIPLE BOOKING SAME DOR(RESERVATION) DIFFERENT PASSENGER : PASSED
+    ->  MULTIPLE BOOKING FROM SAME DEPARTURE STATION : PASSED
+    ->  MULTIPLE BOOKING TO SAME ARRIVAL STATION : PASSED
+    ->  MULTIPLE BOOKING FOR SAME BOOKING CLASS : PASSED
+    ->  MULTIPLE BOOKING FOR SAME BOOKING CATEGORY : PASSED
+    ->  DIFFERENT BOOKING FOR SAME SET OF STATION : PASSED
+    ->  DIFFERENT BOOKING CATEGORY FOR SAME SET OF STATION : PASSED
+    ->  FARE SHOULD BE INDEPENDENT OF DATE : PASSED
+    ->  FARE SHOULD BE DEPENDENT ON BOOKING CLASS : PASSED
+    ->  FARE SHOULD BE DEPENDENT ON BOOKING CATEGORY : PASSED
+    ->  FARE SHOULD BE DEPENDENT ON PASSENGER GENDER : PASSED
+    ->  FARE SHOULD BE DEPENDENT ON PASSENGER AGE : PASSED
+    ->  FARE SHOULD BE DEPENDENT ON PASSENGER DISABILITY : PASSED
+    ->  INVALID BOOKING DUE TO PASSENGER DOB(BIRTH) (NEGATIVE TEST) : FAILED
+    ->  INVALID BOOKING DUE TO INVALID STATION (NEGATIVE TEST) : FAILED
+
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+    *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : PASSED
+
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::SeniorCitizen::Type(), 
+    *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/1957", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Blind::Type(), "311")) : PASSED
+
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::Sleeper::Type(), BookingCategory::Ladies::Type(), 
+    *Passenger::CreatePassenger("XX", "", "Kumari", "16/07/2001", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::TB::Type(), "5121")) : PASSED
+
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+    *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : PASSED
+
+    ReserveBooking("Mumbai", "Kolkata", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+    *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : PASSED
+
+    ReserveBooking("Kolkata", "Mumbai", "22/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+    *Passenger::CreatePassenger("ABC", "", "Kumar", "16/07/2000", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : PASSED
+
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Ladies::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::SeniorCitizen::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/1962", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::SeniorCitizen::Type(), 
+       *Passenger::CreatePassenger("XX", "", "Kumari", "16/07/1964", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), Divyaang::Blind::Type(), 
+       *Passenger::CreatePassenger("XX", "", "Kumari", "16/07/1965", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), Divyaang::Blind::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Female::Type(), "906125658148", "9631920388", Divyaang::TB::Type(), "655")) : FAILED (NEGATIVE TEST CASE)
+
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+    *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : PASSED
+
+    ReserveBooking("Kolkata", "Kokata", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+
+    ReserveBooking("Kolkata", "Kolkata", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "10/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2022", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "90612565814a", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/04/2021", BookingClass::ACFirstClass::Type(), BookingCategory::General::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "963192038b", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Tatkal::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2023", BookingClass::ACFirstClass::Type(), BookingCategory::Tatkal::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Ladies::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Ladies::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::Blind::Type())) : FAILED (NEGATIVE TEST CASE)
+    
+    ReserveBooking("Kolkata", "Mumbai", "20/05/2021", BookingClass::ACFirstClass::Type(), BookingCategory::Ladies::Type(), 
+       *Passenger::CreatePassenger("Mayank", "", "Kumar", "16/07/2001", Gender::Male::Type(), "906125658148", "9631920388", Divyaang::None::Type(), "652")) : FAILED (NEGATIVE TEST CASE)
+
+
+

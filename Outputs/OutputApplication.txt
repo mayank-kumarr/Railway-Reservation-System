@@ -1,0 +1,124 @@
+BOOKING SUCCEEDED!
+PNR Number : 1
+From Station : Kolkata
+To Station : Mumbai
+Travel Date : Tue, 20/Apr/2021
+Booking Date : Sat, 10/Apr/2021
+Booking Category : General
+Travel Class = ACFirstClass
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: Yes
+Passenger Information : 
+Name: Mr. Mayank Kumar 
+Date of Birth: Mon, 16/Jul/2001
+Gender: Male
+Aadhaar: 906125658148
+Mobile: 9631920388
+Fare = 6606
+
+BOOKING SUCCEEDED!
+PNR Number : 2
+From Station : Kolkata
+To Station : Mumbai
+Travel Date : Tue, 20/Apr/2021
+Booking Date : Sat, 10/Apr/2021
+Booking Category : SeniorCitizen
+Travel Class = ACFirstClass
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: Yes
+Passenger Information : 
+Name: Mr. Mayank Kumar 
+Date of Birth: Tue, 16/Jul/1957
+Gender: Male
+Aadhaar: 906125658148
+Mobile: 9631920388
+Disability: Blind
+Disability ID: 311
+Fare = 3987
+
+BOOKING SUCCEEDED!
+PNR Number : 3
+From Station : Kolkata
+To Station : Mumbai
+Travel Date : Tue, 20/Apr/2021
+Booking Date : Sat, 10/Apr/2021
+Booking Category : Ladies
+Travel Class = Sleeper
+ : Mode: Sleeping
+ : Comfort: Non-AC
+ : Bunks: 3
+ : Luxury: No
+Passenger Information : 
+Name: Ms. XX Kumari 
+Date of Birth: Mon, 16/Jul/2001
+Gender: Female
+Aadhaar: 906125658148
+Mobile: 9631920388
+Disability: Blind
+Disability ID: 311
+Fare = 1027
+
+BOOKING SUCCEEDED!
+PNR Number : 4
+From Station : Kolkata
+To Station : Mumbai
+Travel Date : Tue, 20/Apr/2021
+Booking Date : Sat, 10/Apr/2021
+Booking Category : General
+Travel Class = ACFirstClass
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: Yes
+Passenger Information : 
+Name: Mr. Mayank Kumar 
+Date of Birth: Mon, 16/Jul/2001
+Gender: Male
+Aadhaar: 906125658148
+Mobile: 9631920388
+Fare = 6606
+
+BOOKING SUCCEEDED!
+PNR Number : 5
+From Station : Mumbai
+To Station : Kolkata
+Travel Date : Tue, 20/Apr/2021
+Booking Date : Sat, 10/Apr/2021
+Booking Category : General
+Travel Class = ACFirstClass
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: Yes
+Passenger Information : 
+Name: Mr. Mayank Kumar 
+Date of Birth: Mon, 16/Jul/2001
+Gender: Male
+Aadhaar: 906125658148
+Mobile: 9631920388
+Fare = 6606
+
+BOOKING SUCCEEDED!
+PNR Number : 6
+From Station : Kolkata
+To Station : Mumbai
+Travel Date : Thu, 22/Apr/2021
+Booking Date : Sat, 10/Apr/2021
+Booking Category : General
+Travel Class = ACFirstClass
+ : Mode: Sleeping
+ : Comfort: AC
+ : Bunks: 2
+ : Luxury: Yes
+Passenger Information : 
+Name: Mr. ABC Kumar 
+Date of Birth: Sun, 16/Jul/2000
+Gender: Male
+Aadhaar: 906125658148
+Mobile: 9631920388
+Fare = 6606
+
